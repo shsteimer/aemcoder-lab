@@ -105,8 +105,9 @@ function decorateButtons(main) {
     } catch { /* continue */ }
 
     // require authored formatting for buttonization
-    const strong = a.closest('strong');
-    const em = a.closest('em');
+    // Handle both <strong><a>text</a></strong> and <a><strong>text</strong></a>
+    const strong = a.closest('strong') || (a.children.length === 1 && a.querySelector(':scope > strong'));
+    const em = a.closest('em') || (a.children.length === 1 && a.querySelector(':scope > em'));
 
     // In styled sections (dark/accent), standalone links become buttons
     const styledSection = p.closest('.section.dark, .section.accent');
@@ -118,13 +119,16 @@ function decorateButtons(main) {
     if (strong && em) { // high-impact call-to-action
       a.classList.add('accent');
       const outer = strong.contains(em) ? strong : em;
-      outer.replaceWith(a);
+      if (outer.contains(a)) outer.replaceWith(a);
+      else a.replaceChildren(...a.childNodes[0].childNodes);
     } else if (strong) {
       a.classList.add('primary');
-      strong.replaceWith(a);
+      if (strong.contains(a)) strong.replaceWith(a);
+      else a.replaceChildren(...strong.childNodes);
     } else if (em) {
       a.classList.add('secondary');
-      em.replaceWith(a);
+      if (em.contains(a)) em.replaceWith(a);
+      else a.replaceChildren(...em.childNodes);
     } else {
       // Bare link in styled section → primary button
       a.classList.add('primary');
