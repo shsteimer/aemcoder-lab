@@ -19,16 +19,13 @@ import {
  */
 export function getContentRoot() {
   const { pathname } = window.location;
-  // Find the deepest path segment before the page name that contains content pages
-  // e.g. /content/wknd/about → /content/wknd, /about → /
   const segments = pathname.split('/').filter(Boolean);
+  // Trailing slash means directory index — all segments are the content root
+  if (pathname.endsWith('/') && segments.length > 0) {
+    return `/${segments.join('/')}`;
+  }
   // The last segment is the page itself; everything before it is the content root
   if (segments.length > 1) {
-    // Check if content is nested (e.g. /content/adventures or /content/blog/post)
-    // Walk up to find where nav.plain.html would live (sibling of pages, not inside blog/)
-    // For /content/blog/post → content root is /content
-    // For /content/adventures → content root is /content
-    // For /adventures → content root is /
     const root = segments.slice(0, -1);
     // Skip known leaf directories like 'blog'
     while (root.length > 0 && ['blog'].includes(root[root.length - 1])) {
