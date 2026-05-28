@@ -1,35 +1,28 @@
 /* stylelint-disable max-line-length */
 
-/* Heading font - Poppins (Google Fonts) */
+/* Heading font - Syncopate (self-hosted) */
 @font-face {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLCz7Z1JlFd2JQEl8qw.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFVrLBT5Z1JlFd2JQEl8qw.woff2') format('woff2');
-}
-
-/* Body font - Roboto (Google Fonts) */
-@font-face {
-  font-family: Roboto;
+  font-family: Syncopate;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2') format('woff2');
+  src: url('../fonts/syncopate-400-latin.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: Roboto;
+  font-family: Syncopate;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('https://fonts.gstatic.com/s/roboto/v32/KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2') format('woff2');
+  src: url('../fonts/syncopate-700-latin.woff2') format('woff2');
+}
+
+/* Body font - Instrument Sans (self-hosted, variable weight 400-700) */
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  font-stretch: 100%;
+  src: url('../fonts/instrument-sans-latin.woff2') format('woff2');
 }

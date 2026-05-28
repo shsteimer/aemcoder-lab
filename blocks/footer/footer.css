@@ -4,11 +4,11 @@
    Footer — dark inverse with accent top border
    ---------------------------------------------------------------- */
 footer {
-  background-color: var(--light-color);
-  color: var(--text-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
-  border-top: 2px solid var(--border-color);
+  border-top: 4px solid var(--accent-color);
   padding: var(--gap-3xl) 0;
 }
 
@@ -29,7 +29,7 @@ footer a:any-link {
 }
 
 footer a:hover {
-  color: var(--accent-color);
+  color: var(--background-color);
 }
 
 /* Reset section styling inside footer (boilerplate fragment structure) */
@@ -61,7 +61,7 @@ footer h4 {
   font-size: var(--body-font-size-s);
   font-weight: 700;
   letter-spacing: 0.7px;
-  color: var(--text-color);
+  color: var(--background-color);
   margin: 0 0 var(--gap-md);
 }
 
@@ -107,10 +107,12 @@ footer .nav-logo-icon {
 
 footer .nav-logo-icon svg {
   display: block;
+  color: var(--background-color);
+  fill: var(--background-color);
 }
 
 footer .nav-logo-icon img {
-  filter: none;
+  filter: brightness(0) invert(1);
 }
 
 footer .nav-logo-text {
@@ -119,7 +121,7 @@ footer .nav-logo-text {
   font-weight: 700;
   letter-spacing: var(--brand-letter-spacing);
   line-height: 1.2;
-  color: var(--text-color);
+  color: var(--background-color);
 }
 
 /* Tagline below brand */
@@ -146,7 +148,7 @@ footer .footer-bottom .default-content-wrapper {
   justify-content: space-between;
   align-items: center;
   gap: var(--gap-md);
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--text-color-subtle);
   padding-top: var(--gap-xl);
 }
 

@@ -6,10 +6,10 @@
 
 /* --- Local design tokens --- */
 .tabs-container {
-  --tabs-accent: var(--accent-color, rgb(249 115 22));
-  --tabs-text: var(--text-color, rgb(238 240 244));
-  --tabs-muted: var(--text-color-muted, rgb(197 200 210));
-  --tabs-inactive: var(--text-color-subtle, rgb(156 163 175));
+  --tabs-accent: var(--accent-color, rgb(232 101 26));
+  --tabs-text: var(--dark-color, rgb(15 26 20));
+  --tabs-muted: var(--text-color-muted, rgb(122 138 128));
+  --tabs-inactive: var(--border-color, rgb(200 194 184));
 
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -37,7 +37,7 @@
   gap: 0;
   max-width: 100%;
   overflow-x: auto;
-  border-top: 2px solid var(--border-color);
+  border-top: 2px solid var(--tabs-text);
   padding-top: var(--gap-xs);
   padding-bottom: 4px;
   margin-bottom: var(--gap-lg);

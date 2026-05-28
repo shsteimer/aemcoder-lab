@@ -1,31 +1,27 @@
 /* stylelint-disable no-descending-specificity -- consolidated variant file */
 
 /*
- * Rockstar Adventures - Edge Delivery Services
- * Dark theme inspired by https://rockstar.adobeevents.com/
+ * WKND Adventures - Edge Delivery Services
+ * Design system migrated from https://wknd-adventures.com/
  */
 
 :root {
-  /* colors — dark theme */
-  --background-color: #0b0b10;
-  --text-color: #eef0f4;
-  --text-color-muted: #c5c8d2;
-  --text-color-subtle: #9ca3af;
-  --accent-color: #f97316;
-  --accent-secondary: #c026d3;
-  --light-color: #1e1b2e;
-  --dark-color: #0b0b10;
-  --cream-color: #171429;
-  --forest-color: #1e1b2e;
-  --border-color: rgb(255 255 255 / 12%);
-  --border-color-light: rgb(255 255 255 / 8%);
-
-  /* gradient accent */
-  --gradient-accent: linear-gradient(135deg, #f97316, #c026d3);
+  /* colors */
+  --background-color: #fff;
+  --text-color: #0f1a14;
+  --text-color-muted: #7a8a80;
+  --text-color-subtle: #3d4f45;
+  --accent-color: #e8651a;
+  --light-color: #f0ece4;
+  --dark-color: #0f1a14;
+  --cream-color: #f5f0e8;
+  --forest-color: #1a3a2e;
+  --border-color: #c8c2b8;
+  --border-color-light: #ddd8cf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: poppins, poppins-fallback, sans-serif;
+  --body-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
+  --heading-font-family: syncopate, syncopate-fallback, sans-serif;
 
   /* body sizes (mobile-first) */
   --body-font-size-m: 16px;
@@ -57,19 +53,19 @@
   --nav-height: 64px;
 
   /* buttons */
-  --button-font-family: poppins, poppins-fallback, sans-serif;
+  --button-font-family: syncopate, syncopate-fallback, sans-serif;
   --button-font-size: 14px;
   --button-font-weight: 700;
-  --button-letter-spacing: 0.5px;
+  --button-letter-spacing: 0.98px;
   --button-border-radius: 9999px;
-  --button-padding: 12px 28px;
+  --button-padding: 13px 32px 11px;
   --button-transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s,
     color 0.15s, border-color 0.15s;
-  --btn-shadow: rgb(0 0 0 / 45%);
+  --btn-shadow: var(--accent-color);
 
   /* links */
-  --link-color: #f97316;
-  --link-hover-color: #fb923c;
+  --link-color: #e8651a;
+  --link-hover-color: #c9530e;
 
   /* transitions */
   --transition-fast: 0.15s;
@@ -80,16 +76,16 @@
   --card-border-radius: 20px;
 
   /* card shared patterns */
-  --card-hover-shadow: 0 4px 20px rgb(0 0 0 / 30%);
+  --card-hover-shadow: 0 4px 20px rgb(0 0 0 / 8%);
   --card-hover-transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 
-  /* tag pill shared patterns */
-  --tag-padding: 5px 10px 4px;
+  /* tag pill shared patterns — asymmetric padding optically centers uppercase text */
+  --tag-padding: 5px 8px 3px;
   --tag-font-size: 10.4px;
   --tag-letter-spacing: 0.52px;
 
-  /* text link */
-  --text-link-letter-spacing: 0.5px;
+  /* text link (Syncopate underlined link pattern) */
+  --text-link-letter-spacing: 0.84px;
   --text-link-underline-offset: 3px;
 
   /* brand */
@@ -97,28 +93,28 @@
   --brand-letter-spacing: 0.6px;
 
   /* footer */
-  --footer-link-color: #9ca3af;
+  --footer-link-color: #999;
 
   /* dark section / overlay text */
   --text-on-dark: rgb(255 255 255 / 85%);
   --text-on-dark-muted: rgb(255 255 255 / 55%);
 
-  /* glass card */
+  /* glass card (dark section) */
   --glass-bg: rgb(255 255 255 / 6%);
   --glass-border: rgb(255 255 255 / 12%);
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100%;
-  src: local(arial);
+  font-family: instrument-sans-fallback;
+  size-adjust: 91%;
+  src: local('Arial');
 }
 
 @font-face {
-  font-family: poppins-fallback;
-  size-adjust: 112%;
-  src: local(arial black), local(arial);
+  font-family: syncopate-fallback;
+  size-adjust: 138%;
+  src: local('Arial Black'), local('Arial');
 }
 
 /* desktop — content reflow breakpoint */
@@ -183,7 +179,7 @@ h6 {
   margin-top: 0;
   margin-bottom: var(--gap-xs);
   font-family: var(--heading-font-family);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.1;
   scroll-margin: 40px;
   letter-spacing: -0.02em;
@@ -239,7 +235,8 @@ main .default-content-wrapper p.button-wrapper + p.button-wrapper {
   margin-top: 0;
 }
 
-/* Headings following body paragraphs need extra space above (article flow) */
+/* Headings following body paragraphs need extra space above (article flow) —
+   but NOT when following an eyebrow (first p in container) */
 main .default-content-wrapper p + p + h2,
 main .default-content-wrapper p + p + h3 {
   margin-top: var(--gap-2xl);
@@ -268,7 +265,7 @@ pre {
   white-space: pre;
 }
 
-/* blockquote */
+/* blockquote — amber left border, italic */
 blockquote {
   border-left: 4px solid var(--accent-color);
   margin: var(--gap-lg) 0;
@@ -325,8 +322,8 @@ main img {
   font-size: var(--tag-font-size);
   font-weight: 600;
   letter-spacing: var(--tag-letter-spacing);
-  background: var(--gradient-accent);
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--background-color);
   padding: var(--tag-padding);
   border-radius: var(--button-border-radius);
 }
@@ -347,7 +344,7 @@ a:hover {
 
 /* focus ring — accessibility */
 *:focus-visible {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid var(--dark-color);
   outline-offset: 2px;
 }
 
@@ -375,7 +372,7 @@ a.button:any-link {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 1px solid rgb(255 255 255 / 18%);
+  border: 2px solid transparent;
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--button-font-family);
@@ -388,46 +385,46 @@ a.button:any-link {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  box-shadow: 0 10px 30px var(--btn-shadow);
+  box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color));
   transition: var(--button-transition);
 }
 
 a.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 40px var(--btn-shadow);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color));
   text-decoration: none;
 }
 
 a.button:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 20px var(--btn-shadow);
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 0 var(--btn-shadow, var(--accent-color));
 }
 
-/* Primary: gradient bg, white text */
+
+/* Primary: dark bg, white text */
 a.button.primary {
-  border-color: transparent;
-  background: var(--gradient-accent);
-  color: #fff;
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
 }
 
-/* Secondary/Ghost: transparent bg, white border */
+/* Secondary/Ghost: transparent bg, border matches context */
 a.button.secondary {
-  border-color: rgb(255 255 255 / 18%);
+  border-color: var(--dark-color);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--dark-color);
 }
 
 a.button.secondary:hover {
-  background-color: rgb(255 255 255 / 8%);
-  border-color: rgb(255 255 255 / 30%);
-  color: #fff;
+  background-color: var(--dark-color);
+  color: var(--background-color);
 }
 
-/* Accent: solid orange bg */
+/* Accent: orange bg, dark text (hero) */
 a.button.accent {
   border-color: var(--accent-color);
   background-color: var(--accent-color);
-  color: #fff;
+  color: var(--dark-color);
 }
 
 
@@ -475,18 +472,18 @@ main > .section:not(:has(> *)) {
 
 /* --- SECTION METADATA STYLES --- */
 
-/* Highlight / Light: elevated dark surface */
+/* Highlight / Light: beige bg */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
 }
 
-/* Dark: even darker bg */
+/* Dark: dark bg, white text */
 main > .section.dark {
-  background-color: #050508;
-  color: var(--text-color);
+  background-color: var(--dark-color);
+  color: var(--background-color);
 
-  --btn-shadow: rgb(0 0 0 / 60%);
+  --btn-shadow: var(--accent-color);
 }
 
 main > .section.dark h1,
@@ -495,7 +492,7 @@ main > .section.dark h3,
 main > .section.dark h4,
 main > .section.dark h5,
 main > .section.dark h6 {
-  color: #fff;
+  color: var(--background-color);
 }
 
 main > .section.dark p:not(.tag-pill) {
@@ -506,37 +503,37 @@ main > .section.dark a:any-link:not(.button) {
   color: var(--accent-color);
 }
 
-/* dark section: primary button keeps gradient */
+/* dark section: primary button inverts to white fill + amber shadow */
 main > .section.dark a.button.primary {
-  border-color: transparent;
-  background: var(--gradient-accent);
-  color: #fff;
+  border-color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--dark-color);
 }
 
 /* dark section: ghost button uses white outline */
 main > .section.dark a.button.secondary {
-  border-color: rgb(255 255 255 / 18%);
+  border-color: rgb(255 255 255 / 50%);
   background-color: transparent;
-  color: #fff;
+  color: var(--background-color);
 }
 
 main > .section.dark a.button.secondary:hover {
-  background-color: rgb(255 255 255 / 8%);
-  border-color: rgb(255 255 255 / 30%);
-  color: #fff;
+  background-color: var(--background-color);
+  border-color: var(--background-color);
+  color: var(--dark-color);
 }
 
-/* dark section: focus ring */
+/* dark section: focus ring uses white */
 main > .section.dark *:focus-visible {
-  outline-color: var(--accent-color);
+  outline-color: var(--background-color);
 }
 
-/* Accent: gradient bg section */
+/* Accent: orange bg, dark text */
 main > .section.accent {
-  background: var(--gradient-accent);
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--dark-color);
 
-  --btn-shadow: rgb(0 0 0 / 40%);
+  --btn-shadow: var(--background-color);
 }
 
 main > .section.accent h1,
@@ -545,32 +542,31 @@ main > .section.accent h3,
 main > .section.accent h4,
 main > .section.accent h5,
 main > .section.accent h6 {
-  color: #fff;
+  color: var(--dark-color);
 }
 
 main > .section.accent p {
-  color: rgb(255 255 255 / 90%);
+  color: var(--dark-color);
 }
 
 main > .section.accent > div > p:not(.tag-pill) {
   font-size: 20px;
 }
 
-/* accent section: primary button uses dark fill */
+/* accent section: primary button uses black fill + white shadow */
 main > .section.accent a.button.primary {
-  border-color: transparent;
+  border-color: var(--dark-color);
   background-color: var(--dark-color);
-  background-image: none;
-  color: #fff;
+  color: var(--background-color);
 }
 
 main > .section.accent a.button.secondary {
-  border-color: rgb(255 255 255 / 40%);
-  color: #fff;
+  border-color: var(--dark-color);
+  color: var(--dark-color);
   background-color: transparent;
 }
 
-/* Secondary: elevated surface */
+/* Secondary: light bg (kept for backward compatibility) */
 main > .section.secondary {
   background-color: var(--light-color);
 }
@@ -594,9 +590,9 @@ main > .section.center .button-wrapper {
   margin: 4px 8px;
 }
 
-/* Accent section: tag pill uses dark bg */
+/* Accent section: tag pill uses dark bg instead of accent */
 main .section.accent .tag-pill {
-  background: var(--dark-color);
+  background-color: var(--dark-color);
 }
 
 /* Body paragraphs in dark/narrow sections */
