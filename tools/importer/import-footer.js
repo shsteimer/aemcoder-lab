@@ -42,7 +42,7 @@ export default {
           const brandP = document.createElement('p');
           const brandA = document.createElement('a');
           brandA.href = rewriteHref('/');
-          brandA.textContent = 'WKND Adventures';
+          brandA.textContent = 'Rockstar Adventures';
           brandP.appendChild(brandA);
           colDiv.appendChild(brandP);
 

@@ -14,10 +14,7 @@ main > .hero-container {
 
 /* ===== Base hero (full-bleed overlay with gradient) ===== */
 
-/* Set hero button shadow color — black on hero (over image) */
 .hero {
-  --btn-shadow: var(--dark-color);
-
   position: relative;
   display: flex;
   align-items: center;
@@ -42,13 +39,16 @@ main > .hero-container {
   height: 100%;
 }
 
-/* overlay gradient — bottom-to-top for text readability */
+/* overlay gradient — dark base for readability + brand color wash */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(0deg, rgb(0 0 0 / 75%) 0%, rgb(0 0 0 / 45%) 40%, rgb(0 0 0 / 25%));
+  background:
+    radial-gradient(900px 500px at 85% 0%, rgb(238 90 36 / 45%) 0%, transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgb(109 40 217 / 45%) 0%, transparent 60%),
+    linear-gradient(0deg, rgb(11 7 16 / 85%) 0%, rgb(11 7 16 / 45%) 45%, rgb(11 7 16 / 30%));
   pointer-events: none;
 }
 
@@ -67,13 +67,13 @@ main > .hero-container {
 .hero h4,
 .hero h5,
 .hero h6 {
-  color: var(--background-color);
+  color: #fff;
   margin-bottom: var(--gap-lg);
   text-shadow: 0 1px 3px rgb(0 0 0 / 35%);
 }
 
 .hero h1 {
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 608px;
@@ -87,9 +87,16 @@ main > .hero-container {
   text-shadow: 0 1px 3px rgb(0 0 0 / 35%);
 }
 
-/* eyebrow pill — uses .tag-pill utility, adds hero-specific overrides */
+/* eyebrow — peach uppercase label (overrides the glass .tag-pill default) */
 .hero .tag-pill {
   margin-bottom: var(--gap-md);
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--eyebrow-color);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
   text-shadow: none;
 }
 
@@ -127,6 +134,7 @@ main .hero a.button:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--button-font-family);
@@ -137,43 +145,42 @@ main .hero a.button:any-link {
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--dark-color));
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease, background-color 0.15s ease;
 }
 
 main .hero a.button:any-link:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--dark-color));
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
 main .hero a.button:any-link:active {
   transform: translateY(0);
-  box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* primary button on hero — gradient fill */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  background-image: var(--accent-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 20px rgb(238 90 36 / 35%);
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 28px rgb(238 90 36 / 45%);
 }
 
-/* secondary button on hero — white outline, dark shadow */
+/* secondary button on hero — white glass outline */
 main .hero a.button.secondary:any-link {
-  background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
-  color: var(--background-color);
+  background-color: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 50%);
+  color: #fff;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  border-color: #fff;
+  background-color: rgb(255 255 255 / 20%);
+  color: #fff;
 }
 
 @media (width < 768px) {
@@ -276,7 +283,7 @@ main .hero a.button.secondary:any-link:hover {
 /* author name */
 .hero.article > div > h1 + p + p {
   font-weight: 700;
-  color: var(--background-color);
+  color: #fff;
   margin-top: var(--gap-sm);
 }
 

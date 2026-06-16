@@ -22,7 +22,7 @@ var CustomImportScript = (() => {
   __export(import_nav_exports, {
     default: () => import_nav_default
   });
-  var BASE = "/content/wknd/";
+  var BASE = "/";
   function rewriteHref(href) {
     if (!href) return href;
     try {
@@ -44,7 +44,7 @@ var CustomImportScript = (() => {
       const brandP = document.createElement("p");
       const brandA = document.createElement("a");
       brandA.href = rewriteHref(logo?.getAttribute("href") || "/");
-      brandA.textContent = "WKND Adventures";
+      brandA.textContent = "Rockstar Adventures";
       brandP.appendChild(brandA);
       brandSection.appendChild(brandP);
       result.appendChild(brandSection);

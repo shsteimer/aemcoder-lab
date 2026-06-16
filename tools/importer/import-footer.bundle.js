@@ -22,7 +22,7 @@ var CustomImportScript = (() => {
   __export(import_footer_exports, {
     default: () => import_footer_default
   });
-  var BASE = "/content/wknd/";
+  var BASE = "/";
   function rewriteHref(href) {
     if (!href) return href;
     try {
@@ -50,7 +50,7 @@ var CustomImportScript = (() => {
             const brandP = document.createElement("p");
             const brandA = document.createElement("a");
             brandA.href = rewriteHref("/");
-            brandA.textContent = "WKND Adventures";
+            brandA.textContent = "Rockstar Adventures";
             brandP.appendChild(brandA);
             colDiv.appendChild(brandP);
             const tagline = col.querySelector("p");

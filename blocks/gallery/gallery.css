@@ -81,7 +81,7 @@
   text-decoration-thickness: 1.5px;
   text-underline-offset: var(--text-link-underline-offset);
   white-space: nowrap;
-  color: var(--background-color);
+  color: var(--text-color);
 }
 
 /* Reset button styling on section header links — needs to beat
@@ -100,7 +100,7 @@ main .gallery-container > .default-content-wrapper a.button:any-link {
   font-size: var(--body-font-size-s);
   font-weight: 700;
   letter-spacing: var(--text-link-letter-spacing);
-  color: var(--background-color);
+  color: var(--text-color);
 }
 
 main .gallery-container > .default-content-wrapper a.button:hover {

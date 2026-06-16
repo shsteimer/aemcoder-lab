@@ -17,10 +17,12 @@
 .editorial-index > div > div:first-child {
   font-family: var(--heading-font-family);
   font-size: 48px;
-  font-weight: 700;
-  color: var(--accent-color);
+  font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 48px;
+  background-image: var(--accent-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* strip margin from any <p> EDS wraps around the number text */

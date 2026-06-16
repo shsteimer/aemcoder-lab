@@ -1,27 +1,31 @@
 /* stylelint-disable no-descending-specificity -- consolidated variant file */
 
 /*
- * WKND Adventures - Edge Delivery Services
- * Design system migrated from https://wknd-adventures.com/
+ * Rockstar Adventures - Edge Delivery Services
+ * Dark brand design system inspired by https://rockstar.adobeevents.com/
  */
 
 :root {
-  /* colors */
-  --background-color: #fff;
-  --text-color: #0f1a14;
-  --text-color-muted: #7a8a80;
-  --text-color-subtle: #3d4f45;
-  --accent-color: #e8651a;
-  --light-color: #f0ece4;
-  --dark-color: #0f1a14;
-  --cream-color: #f5f0e8;
-  --forest-color: #1a3a2e;
-  --border-color: #c8c2b8;
-  --border-color-light: #ddd8cf;
+  /* colors — dark Rockstar theme */
+  --background-color: #0b0710;
+  --background-color-elevated: #15101d;
+  --text-color: #eef0f4;
+  --text-color-muted: #9aa0b0;
+  --text-color-subtle: #c5c8d2;
+  --accent-color: #ee5a24;
+  --accent-color-2: #c026d3;
+  --accent-gradient: linear-gradient(135deg, #f97316, #c026d3);
+  --eyebrow-color: #ffd7b0;
+  --light-color: #15101d;
+  --dark-color: #0b0710;
+  --cream-color: #1c1526;
+  --forest-color: #6d28d9;
+  --border-color: rgb(255 255 255 / 18%);
+  --border-color-light: rgb(255 255 255 / 12%);
 
   /* fonts */
-  --body-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
-  --heading-font-family: syncopate, syncopate-fallback, sans-serif;
+  --body-font-family: roboto, roboto-fallback, sans-serif;
+  --heading-font-family: poppins, poppins-fallback, sans-serif;
 
   /* body sizes (mobile-first) */
   --body-font-size-m: 16px;
@@ -53,19 +57,19 @@
   --nav-height: 64px;
 
   /* buttons */
-  --button-font-family: syncopate, syncopate-fallback, sans-serif;
-  --button-font-size: 14px;
+  --button-font-family: roboto, roboto-fallback, sans-serif;
+  --button-font-size: 15px;
   --button-font-weight: 700;
-  --button-letter-spacing: 0.98px;
+  --button-letter-spacing: 0.2px;
   --button-border-radius: 9999px;
-  --button-padding: 13px 32px 11px;
+  --button-padding: 12px 28px;
   --button-transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s,
-    color 0.15s, border-color 0.15s;
-  --btn-shadow: var(--accent-color);
+    color 0.15s, border-color 0.15s, filter 0.15s;
+  --btn-shadow: transparent;
 
   /* links */
-  --link-color: #e8651a;
-  --link-hover-color: #c9530e;
+  --link-color: #ff8a5c;
+  --link-hover-color: #ffb38c;
 
   /* transitions */
   --transition-fast: 0.15s;
@@ -76,13 +80,14 @@
   --card-border-radius: 20px;
 
   /* card shared patterns */
-  --card-hover-shadow: 0 4px 20px rgb(0 0 0 / 8%);
-  --card-hover-transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+  --card-bg: rgb(255 255 255 / 4%);
+  --card-hover-shadow: 0 8px 30px rgb(0 0 0 / 45%);
+  --card-hover-transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 
-  /* tag pill shared patterns — asymmetric padding optically centers uppercase text */
-  --tag-padding: 5px 8px 3px;
-  --tag-font-size: 10.4px;
-  --tag-letter-spacing: 0.52px;
+  /* tag pill / badge shared patterns */
+  --tag-padding: 5px 12px;
+  --tag-font-size: 12px;
+  --tag-letter-spacing: 0.2px;
 
   /* text link (Syncopate underlined link pattern) */
   --text-link-letter-spacing: 0.84px;
@@ -93,11 +98,11 @@
   --brand-letter-spacing: 0.6px;
 
   /* footer */
-  --footer-link-color: #999;
+  --footer-link-color: #9aa0b0;
 
   /* dark section / overlay text */
-  --text-on-dark: rgb(255 255 255 / 85%);
-  --text-on-dark-muted: rgb(255 255 255 / 55%);
+  --text-on-dark: rgb(238 240 244 / 88%);
+  --text-on-dark-muted: rgb(238 240 244 / 60%);
 
   /* glass card (dark section) */
   --glass-bg: rgb(255 255 255 / 6%);
@@ -106,15 +111,15 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: instrument-sans-fallback;
-  size-adjust: 91%;
+  font-family: roboto-fallback;
+  size-adjust: 100%;
   src: local('Arial');
 }
 
 @font-face {
-  font-family: syncopate-fallback;
-  size-adjust: 138%;
-  src: local('Arial Black'), local('Arial');
+  font-family: poppins-fallback;
+  size-adjust: 112%;
+  src: local('Arial');
 }
 
 /* desktop — content reflow breakpoint */
@@ -141,6 +146,11 @@ body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgb(238 90 36 / 45%) 0%, transparent 60%),
+    radial-gradient(900px 600px at 10% 0%, rgb(109 40 217 / 45%) 0%, transparent 55%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -179,13 +189,18 @@ h6 {
   margin-top: 0;
   margin-bottom: var(--gap-xs);
   font-family: var(--heading-font-family);
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 800;
+  line-height: 1.12;
   scroll-margin: 40px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 900;
+}
+
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
 
@@ -318,12 +333,13 @@ main img {
 
 .tag-pill {
   display: inline-block;
-  font-family: var(--heading-font-family);
+  font-family: var(--body-font-family);
   font-size: var(--tag-font-size);
   font-weight: 600;
   letter-spacing: var(--tag-letter-spacing);
-  background-color: var(--accent-color);
-  color: var(--background-color);
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color-subtle);
   padding: var(--tag-padding);
   border-radius: var(--button-border-radius);
 }
@@ -344,7 +360,7 @@ a:hover {
 
 /* focus ring — accessibility */
 *:focus-visible {
-  outline: 2px solid var(--dark-color);
+  outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
 
@@ -372,7 +388,7 @@ a.button:any-link {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
   font-family: var(--button-font-family);
@@ -385,46 +401,55 @@ a.button:any-link {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color));
   transition: var(--button-transition);
 }
 
 a.button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color));
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
 a.button:active {
-  transform: translate(0, 0);
-  box-shadow: 0 0 0 0 var(--btn-shadow, var(--accent-color));
+  transform: translateY(0);
 }
 
 
-/* Primary: dark bg, white text */
+/* Primary: gradient fill, white text */
 a.button.primary {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  border-color: transparent;
+  background-image: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 6px 20px rgb(238 90 36 / 35%);
 }
 
-/* Secondary/Ghost: transparent bg, border matches context */
+a.button.primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 28px rgb(238 90 36 / 45%);
+}
+
+/* Secondary/Ghost: glass outline */
 a.button.secondary {
-  border-color: var(--dark-color);
-  background-color: transparent;
-  color: var(--dark-color);
+  border-color: var(--border-color);
+  background-color: var(--glass-bg);
+  color: var(--text-color);
 }
 
 a.button.secondary:hover {
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  border-color: rgb(255 255 255 / 40%);
+  background-color: rgb(255 255 255 / 10%);
+  color: var(--text-color);
 }
 
-/* Accent: orange bg, dark text (hero) */
+/* Accent: solid orange fill */
 a.button.accent {
-  border-color: var(--accent-color);
+  border-color: transparent;
   background-color: var(--accent-color);
-  color: var(--dark-color);
+  color: #fff;
+  box-shadow: 0 6px 20px rgb(238 90 36 / 35%);
+}
+
+a.button.accent:hover {
+  filter: brightness(1.08);
 }
 
 
@@ -470,70 +495,32 @@ main > .section:not(:has(> *)) {
   display: none;
 }
 
-/* --- SECTION METADATA STYLES --- */
+/* --- SECTION METADATA STYLES ---
+ * The page background is a dark gradient, so default sections are transparent
+ * and inherit the light body text. Style variants add elevated surfaces or a
+ * gradient band for contrast.
+ */
 
-/* Highlight / Light: beige bg */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
+/* Dark / Secondary / Light: elevated glass panel that lifts off the gradient */
+main > .section.dark,
+main > .section.secondary,
+main > .section.light,
+main > .section.highlight {
+  background-color: var(--background-color-elevated);
+  border-top: 1px solid var(--border-color-light);
+  border-bottom: 1px solid var(--border-color-light);
 }
 
-/* Dark: dark bg, white text */
-main > .section.dark {
-  background-color: var(--dark-color);
-  color: var(--background-color);
-
-  --btn-shadow: var(--accent-color);
+main > .section.dark a:any-link:not(.button),
+main > .section.secondary a:any-link:not(.button),
+main > .section.light a:any-link:not(.button) {
+  color: var(--link-color);
 }
 
-main > .section.dark h1,
-main > .section.dark h2,
-main > .section.dark h3,
-main > .section.dark h4,
-main > .section.dark h5,
-main > .section.dark h6 {
-  color: var(--background-color);
-}
-
-main > .section.dark p:not(.tag-pill) {
-  color: var(--text-on-dark);
-}
-
-main > .section.dark a:any-link:not(.button) {
-  color: var(--accent-color);
-}
-
-/* dark section: primary button inverts to white fill + amber shadow */
-main > .section.dark a.button.primary {
-  border-color: var(--background-color);
-  background-color: var(--background-color);
-  color: var(--dark-color);
-}
-
-/* dark section: ghost button uses white outline */
-main > .section.dark a.button.secondary {
-  border-color: rgb(255 255 255 / 50%);
-  background-color: transparent;
-  color: var(--background-color);
-}
-
-main > .section.dark a.button.secondary:hover {
-  background-color: var(--background-color);
-  border-color: var(--background-color);
-  color: var(--dark-color);
-}
-
-/* dark section: focus ring uses white */
-main > .section.dark *:focus-visible {
-  outline-color: var(--background-color);
-}
-
-/* Accent: orange bg, dark text */
+/* Accent: vivid gradient band, white text */
 main > .section.accent {
-  background-color: var(--accent-color);
-  color: var(--dark-color);
-
-  --btn-shadow: var(--background-color);
+  background-image: var(--accent-gradient);
+  color: #fff;
 }
 
 main > .section.accent h1,
@@ -542,33 +529,45 @@ main > .section.accent h3,
 main > .section.accent h4,
 main > .section.accent h5,
 main > .section.accent h6 {
-  color: var(--dark-color);
+  color: #fff;
 }
 
 main > .section.accent p {
-  color: var(--dark-color);
+  color: rgb(255 255 255 / 92%);
 }
 
 main > .section.accent > div > p:not(.tag-pill) {
   font-size: 20px;
 }
 
-/* accent section: primary button uses black fill + white shadow */
+main > .section.accent .tag-pill {
+  background-color: rgb(255 255 255 / 18%);
+  border-color: rgb(255 255 255 / 35%);
+  color: #fff;
+}
+
+/* accent section: primary button uses solid white fill, dark text */
 main > .section.accent a.button.primary {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  border-color: transparent;
+  background-image: none;
+  background-color: #fff;
+  color: #1a1020;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 25%);
 }
 
 main > .section.accent a.button.secondary {
-  border-color: var(--dark-color);
-  color: var(--dark-color);
-  background-color: transparent;
+  border-color: rgb(255 255 255 / 60%);
+  color: #fff;
+  background-color: rgb(255 255 255 / 12%);
 }
 
-/* Secondary: light bg (kept for backward compatibility) */
-main > .section.secondary {
-  background-color: var(--light-color);
+main > .section.accent a:any-link:not(.button) {
+  color: #fff;
+  text-decoration: underline;
+}
+
+main > .section.accent *:focus-visible {
+  outline-color: #fff;
 }
 
 /* Narrow: constrains content to narrow max-width */
@@ -588,11 +587,6 @@ main > .section.center .button-group {
 main > .section.center .button-wrapper {
   display: inline-block;
   margin: 4px 8px;
-}
-
-/* Accent section: tag pill uses dark bg instead of accent */
-main .section.accent .tag-pill {
-  background-color: var(--dark-color);
 }
 
 /* Body paragraphs in dark/narrow sections */

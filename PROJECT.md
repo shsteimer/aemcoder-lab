@@ -1,6 +1,8 @@
-# WKND Adventures — Project State
+# Rockstar Adventures — Project State
 
-**Original site:** https://wknd-adventures.com/
+**Brand:** Rockstar Adventures (rebranded from WKND Adventures)
+**Content sourced from:** https://wknd-adventures.com/ (import scrape origin — fragments are re-branded to Rockstar on output)
+**Design inspiration:** https://rockstar.adobeevents.com/ (dark theme, orange→magenta gradient accents)
 **Local preview:** http://localhost:3000/content/{page}
 
 ---
@@ -52,13 +54,13 @@ EDS generates `{block}-container` and `{block}-wrapper` divs using the **base** 
 
 ## Section Styles
 
-Three background variants and two compound modifiers:
+The page background is a dark gradient (orange/purple glow over near-black), so default sections are transparent with light text. Style variants add contrast surfaces:
 
 | Style | CSS Class | Effect |
 |-------|-----------|--------|
-| `dark` | `.section.dark` | Dark green bg (#0f1a14), white text |
-| `accent` | `.section.accent` | Orange bg (#e8651a), dark text |
-| `secondary` | `.section.secondary` | Warm beige bg (#f0ece4), default text |
+| `dark` | `.section.dark` | Elevated dark panel (#15101d) with hairline borders |
+| `secondary` | `.section.secondary` | Same elevated dark panel (alias of dark) |
+| `accent` | `.section.accent` | Vivid orange→magenta gradient band, white text |
 | `narrow` | `.section.narrow` | Constrains content to 768px max-width |
 | `center` | `.section.center` | Centers text and buttons |
 
@@ -68,27 +70,32 @@ Compound styles are comma-separated in section-metadata (e.g., `dark, narrow` or
 
 ## Design Tokens (styles.css)
 
-### Colors
+### Colors (dark theme)
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--background-color` | `#fff` | Page background |
-| `--text-color` | `#0f1a14` | Body text |
-| `--text-color-muted` | `#7a8a80` | Gray-500, secondary text |
-| `--text-color-subtle` | `#3d4f45` | Gray-400 |
-| `--accent-color` | `#e8651a` | Orange accent, buttons |
-| `--light-color` | `#f0ece4` | Secondary section bg |
-| `--dark-color` | `#0f1a14` | Dark section bg, headings |
-| `--cream-color` | `#f5f0e8` | Card hover bg |
-| `--forest-color` | `#1a3a2e` | Deep green accent |
-| `--border-color` | `#c8c2b8` | Gray-300, hover borders |
-| `--border-color-light` | `#ddd8cf` | Gray-200, default borders |
+| `--background-color` | `#0b0710` | Page background (near-black) |
+| `--background-color-elevated` | `#15101d` | Elevated panels (dark/secondary sections, footer) |
+| `--text-color` | `#eef0f4` | Body text (light) |
+| `--text-color-muted` | `#9aa0b0` | Secondary text |
+| `--text-color-subtle` | `#c5c8d2` | Tertiary text |
+| `--accent-color` | `#ee5a24` | Orange accent |
+| `--accent-color-2` | `#c026d3` | Magenta accent |
+| `--accent-gradient` | `linear-gradient(135deg, #f97316, #c026d3)` | Buttons, accent bands, pull-quotes, editorial numbers |
+| `--eyebrow-color` | `#ffd7b0` | Peach uppercase eyebrow labels |
+| `--card-bg` | `rgb(255 255 255 / 4%)` | Glass card surface |
+| `--light-color` | `#15101d` | Alias of elevated panel |
+| `--dark-color` | `#0b0710` | Alias of page background |
+| `--border-color` | `rgb(255 255 255 / 18%)` | Hover borders |
+| `--border-color-light` | `rgb(255 255 255 / 12%)` | Default borders |
 
 ### Typography
 | Token | Value |
 |-------|-------|
-| `--body-font-family` | Instrument Sans |
-| `--heading-font-family` | Syncopate |
-| `--button-font-family` | Syncopate |
+| `--body-font-family` | Roboto (self-hosted, variable 400–700) |
+| `--heading-font-family` | Poppins (self-hosted, 600/800/900) |
+| `--button-font-family` | Roboto |
+
+Headings are sentence-case Poppins (h1 = 900 weight, others 800), not uppercase.
 
 ### Spacing
 | Token | Value |
@@ -107,8 +114,8 @@ Compound styles are comma-separated in section-metadata (e.g., `dark, narrow` or
 ### Links
 | Token | Value |
 |-------|-------|
-| `--link-color` | #e8651a |
-| `--link-hover-color` | #c9530e |
+| `--link-color` | #ff8a5c |
+| `--link-hover-color` | #ffb38c |
 
 ### Shared Component Tokens
 | Token | Value | Usage |
@@ -127,7 +134,7 @@ Compound styles are comma-separated in section-metadata (e.g., `dark, narrow` or
 | `--transition-normal` | `0.3s ease` | Standard transitions (transform, accordion) |
 
 ### Buttons
-Primary (black + amber shadow), Ghost (outline + amber shadow), Accent (amber + white shadow). In accent sections, `--btn-shadow` overrides to `#fff`. All use offset `box-shadow` with hover lift and active press-down transitions.
+Pill-shaped (`border-radius: 9999px`). Primary = orange→magenta gradient fill with a soft glow shadow; Secondary/Ghost = glass fill + hairline border; Accent = solid orange. Hover lifts (`translateY(-2px)`) and brightens. In accent gradient sections, primary buttons invert to solid white fill with dark text. The old offset hard-shadow pattern has been replaced by gradient + glow.
 
 ---
 
@@ -226,7 +233,7 @@ Tabs are handled by `decorateTabSections()` in `scripts.js`, not by a block. Con
 
 ### editorial-index
 - Uses `border-top` on all items + `border-bottom` only on `:last-child` to avoid double borders between adjacent items.
-- Number column: 48px (mobile) / 56px (desktop) Syncopate font, amber color.
+- Number column: 48px (mobile) / 56px (desktop) Poppins font, orange→magenta gradient text (`background-clip: text`).
 - Desktop grid: `80px 1fr`.
 
 ### featured-article

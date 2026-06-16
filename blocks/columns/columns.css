@@ -91,16 +91,17 @@
 /* each cell = promo card */
 .columns.columns-promo > div > div {
   padding: var(--gap-lg);
-  background-color: var(--background-color);
+  background-color: var(--card-bg);
   border: 1px solid var(--border-color-light);
   border-radius: var(--card-border-radius);
   transition: var(--card-hover-transition);
 }
 
 .columns.columns-promo > div > div:hover {
-  background-color: var(--cream-color);
+  background-color: rgb(255 255 255 / 8%);
   border-color: var(--border-color);
   box-shadow: var(--card-hover-shadow);
+  transform: translateY(-3px);
 }
 
 /* eyebrow — em wrapper */
@@ -133,26 +134,22 @@
   letter-spacing: var(--button-letter-spacing);
   text-decoration: none;
   padding: var(--button-padding);
-  background-color: transparent;
-  color: var(--dark-color);
-  border: 2px solid var(--dark-color);
+  background-color: var(--glass-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: var(--button-border-radius);
-  box-shadow: 3px 3px 0 var(--accent-color);
   transition: var(--button-transition);
 }
 
 .columns.columns-promo a:any-link:hover {
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background-color: rgb(255 255 255 / 12%);
+  border-color: rgb(255 255 255 / 40%);
+  color: var(--text-color);
   transform: translateY(-2px);
-  box-shadow: 5px 5px 0 var(--accent-color);
 }
 
 .columns.columns-promo a:any-link:active {
-  background-color: var(--dark-color);
-  color: var(--background-color);
   transform: translateY(0);
-  box-shadow: 0 0 0 var(--accent-color);
 }
 
 .columns.columns-promo img {
@@ -189,15 +186,15 @@
 
 /* pull quote column */
 .columns.columns-pullquote > div > div:last-child {
-  background-color: var(--dark-color);
+  background-image: var(--accent-gradient);
   border-radius: var(--card-border-radius);
   padding: var(--gap-xl);
-  color: var(--background-color);
+  color: #fff;
 }
 
 .columns.columns-pullquote > div > div:last-child blockquote,
 .columns.columns-pullquote > div > div:last-child p {
-  color: var(--background-color);
+  color: #fff;
   font-size: var(--heading-font-size-m);
   font-style: italic;
   line-height: 1.4;
@@ -206,7 +203,7 @@
 
 .columns.columns-pullquote > div > div:last-child em {
   font-style: normal;
-  color: var(--text-color-muted);
+  color: rgb(255 255 255 / 75%);
   font-size: var(--body-font-size-s);
 }
 

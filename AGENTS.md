@@ -8,7 +8,7 @@
 
 ## Quick Start — Read This First
 
-This is the **WKND Adventures** website — an example AEM Edge Delivery Services project migrated from https://wknd-adventures.com/. Before making any changes, understand the project layout:
+This is the **Rockstar Adventures** website — an example AEM Edge Delivery Services project. Content was originally migrated from https://wknd-adventures.com/ and has since been rebranded to Rockstar Adventures with a dark theme inspired by https://rockstar.adobeevents.com/ (near-black background, orange→magenta gradient accents, Poppins headings, Roboto body). Before making any changes, understand the project layout:
 
 - **`PROJECT.md`** — Read this file when you need: block inventory (all 12 blocks + variants), block variant CSS selectors, design tokens (colors, fonts, spacing values), page list with URLs, section style details, or import infrastructure configuration.
 - **`/content/`** — All content HTML files (pages, nav, footer).
@@ -237,9 +237,9 @@ With this information, you can construct URLs for the preview environment (same 
 - Follow the Publishing Process documented above
 - Update documentation for significant changes
 
-## WKND Adventures — Project-Specific Guidance
+## Rockstar Adventures — Project-Specific Guidance
 
-This project is an example migration of https://wknd-adventures.com/ to AEM Edge Delivery Services.
+This project is an example site for AEM Edge Delivery Services, with content originally migrated from https://wknd-adventures.com/ and rebranded to Rockstar Adventures (dark theme).
 See `PROJECT.md` for full project state (blocks, variants, pages, design tokens, import infrastructure).
 
 ### Block Architecture
@@ -342,14 +342,15 @@ CSS selectors must match the **actual EDS DOM structure**, not the original site
 - Footer bar layouts using nested `<div>` wrappers don't exist in EDS flat paragraph structure. Use positional `p:last-child` / `p:nth-last-child(2)` selectors.
 - Image containers inside blocks need explicit `overflow: hidden` + `max-height` + `object-fit: cover` since images in `<p>` tags will expand to natural aspect ratio otherwise.
 
-### Button Shadow Values
+### Button Style (Rockstar gradient pills)
 
-The WKND design uses a **3px / 5px / 0px** offset shadow pattern for all button variants:
-- Rest: `box-shadow: 3px 3px 0 {shadow-color}`
-- Hover: `transform: translateY(-2px); box-shadow: 5px 5px 0 {shadow-color}`
-- Active: `transform: translateY(0); box-shadow: 0 0 0 {shadow-color}`
+Buttons are pill-shaped (`border-radius: 9999px`) with a gradient/glow pattern:
+- **Primary:** `background-image: var(--accent-gradient)` (orange→magenta), white text, soft glow `box-shadow: 0 6px 20px rgb(238 90 36 / 35%)`.
+- **Secondary/Ghost:** glass fill (`var(--glass-bg)`) + `1px` hairline border (`var(--border-color)`), light text.
+- **Accent:** solid `var(--accent-color)` fill.
+- Hover: `transform: translateY(-2px); filter: brightness(1.08)` with a deeper glow. Active: `translateY(0)`.
 
-Shadow colors vary by variant: Primary uses `var(--accent-color)`, Ghost uses `var(--accent-color)`. In accent sections, `--btn-shadow` overrides to `#fff`.
+In `.section.accent` (gradient band), primary buttons invert to a **solid white fill with dark text**. The old offset hard-shadow (`3px/5px/0`) pattern has been removed — do not reintroduce it.
 
 ### Adjacent Item Border Pattern
 
@@ -360,7 +361,7 @@ When block items need borders between them (e.g., editorial-index), avoid `borde
 ### Navigation (header.js) — Megamenu Pattern
 
 The nav uses EDS fragment loading (`/nav.plain.html`). Content structure:
-- **Section 1 (brand):** `<p><a>WKND Adventures</a></p>` → brand link with SVG logo
+- **Section 1 (brand):** `<p><a>Rockstar Adventures</a></p>` → brand link with SVG logo
 - **Section 2 (sections):** Nested `<ul>` with `<br>`-separated descriptions → megamenu panels
 - **Section 3 (tools):** `<p><strong><a>Subscribe</a></strong></p>` → styled pill button
 
